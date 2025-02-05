@@ -34,12 +34,7 @@ const Color = ({setShowInstruction}) => {
         audio.play()
         setIsWrong(prev => prev + 1)
       }
-      setCurrentColor((prev) => (prev + 1) % colours.length);
-
-      if(currentColor === numberOfColors){
-        setIsCorrect(0)
-        setIsWrong(0)
-      }
+      setCurrentColor((prev)=> (prev + 1) % colours.length);
     };
 
     const handleNumberOfColors = (e)=> {
@@ -65,12 +60,12 @@ const Color = ({setShowInstruction}) => {
           <div data-testid="colorBox" style={{backgroundColor: colours[currentColor].targetHexColor}} className="w-full h-40 rounded-md"></div>
           <div data-testid="colorOption" className="grid grid-cols-3 gap-2 m-4">
               {
-                  currentColors.map((col, index) => <button disabled={currentColor + 1 === colours.length} onClick={()=> handleClick(col)} key={index} style={{backgroundColor: col.hexColor}} className={`${currentColor + 1 === colours.length && "opacity-50"} w-full h-10 rounded-md cursor-pointer hover:border-2`}></button>)
+                  currentColors.map((col, index) => <button disabled={isCorrect + isWrong === colours.length } onClick={()=> handleClick(col)} key={index} style={{backgroundColor: col.hexColor}} className={`${isCorrect + isWrong === colours.length && "opacity-50"} w-full h-10 rounded-md cursor-pointer hover:border-2`}></button>)
               }
           </div>
       </div>
       <div className="relative h-full flex justify-between items-end px-6">
-          <p data-testid="gameStatus">{currentColor + 1}/{colours.length}</p>
+          <p data-testid="gameStatus">{currentColor}/{colours.length}</p>
           <div data-testid="score" className="absolute top-0 left-0 flex flex-col">
             <span className={`bg-green-700 text-[whitesmoke] p-2 text-lg`}>{isCorrect}</span>
             <span className="bg-red-700 text-[whitesmoke] p-2 text-lg">{isWrong}</span>
