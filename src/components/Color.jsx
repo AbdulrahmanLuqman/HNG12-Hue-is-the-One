@@ -65,7 +65,7 @@ const Color = ({setShowInstruction}) => {
           <div data-testid="colorBox" style={{backgroundColor: colours[currentColor].targetHexColor}} className="w-full h-40 rounded-md"></div>
           <div data-testid="colorOption" className="grid grid-cols-3 gap-2 m-4">
               {
-                  currentColors.map((col, index) => <button onClick={()=> handleClick(col)} key={index} style={{backgroundColor: col.hexColor}} className="w-full h-10 rounded-md cursor-pointer hover:border-2"></button>)
+                  currentColors.map((col, index) => <button disabled={currentColor + 1 === colours.length} onClick={()=> handleClick(col)} key={index} style={{backgroundColor: col.hexColor}} className={`${currentColor + 1 === colours.length && "opacity-50"} w-full h-10 rounded-md cursor-pointer hover:border-2`}></button>)
               }
           </div>
       </div>
