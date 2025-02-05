@@ -59,13 +59,13 @@ const Color = ({setShowInstruction}) => {
     }
     
   return (
-    <div className="w-[400px] h-[600px] mt-5 py-3 bg-gray-500 mx-auto flex flex-col justify-between rounded-2xl relative">
+    <div className="w-[400px] max-[400px]:w-full h-[600px] mt-5 py-3 bg-gray-500 mx-auto flex flex-col justify-between rounded-2xl relative">
       <div className="">
           <h2 data-testid="gameInstructions" className="text-3xl font-semibold text-center py-5">Guess the correct color!</h2>
           <div data-testid="colorBox" style={{backgroundColor: colours[currentColor].targetHexColor}} className="w-full h-40 rounded-md"></div>
-          <div data-testid="colorOption" className="grid grid-cols-3 gap-1 my-4">
+          <div data-testid="colorOption" className="grid grid-cols-3 gap-2 m-4">
               {
-                  currentColors.map((col, index) => <button onClick={()=> handleClick(col)} key={index} style={{backgroundColor: col.hexColor}} className={`w-full h-10 rounded-md cursor-pointer hover:border-2`}></button>)
+                  currentColors.map((col, index) => <button onClick={()=> handleClick(col)} key={index} style={{backgroundColor: col.hexColor}} className="w-full h-10 rounded-md cursor-pointer hover:border-2"></button>)
               }
           </div>
       </div>
@@ -78,7 +78,7 @@ const Color = ({setShowInstruction}) => {
           <div className="absolute top-0 left-0 right-0 mx-auto w-fit flex flex-col gap-3">
             <div className="flex gap-2">
               <label htmlFor="level" className="text-lg">Colors:</label>
-              <select onChange={handleNumberOfColors} id="level" className="text-sm border rounded-2xl">
+              <select onChange={handleNumberOfColors} id="level" className="text-sm border rounded">
                 <option value={10}>10</option>
                 <option value={20}>20</option>
                 <option value={30}>30</option>
@@ -88,7 +88,7 @@ const Color = ({setShowInstruction}) => {
             </div>
             <div className="flex gap-2">
               <label htmlFor="level" className="text-lg">Level:</label>
-              <select onChange={handleDifficultyChange} id="level" className="text-sm border rounded-2xl">
+              <select onChange={handleDifficultyChange} id="level" className="text-sm border rounded">
                 <option value="easy">easy</option>
                 <option value="normal">normal</option>
                 <option value="hard">hard</option>
