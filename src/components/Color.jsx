@@ -57,6 +57,7 @@ const Color = ({setShowInstruction}) => {
     <div className="w-[400px] max-[400px]:w-full h-[600px] mt-5 py-3 bg-gray-500 mx-auto flex flex-col justify-between rounded-2xl relative">
       <div className="">
           <h2 data-testid="gameInstructions" className="text-3xl font-semibold text-center py-5">Guess the correct color!</h2>
+          <span className="text-[12px]">Change the level of the to normal or hard to see shades of the box's color</span>
           <div data-testid="colorBox" style={{backgroundColor: colours[currentColor].targetHexColor}} className="w-full h-40 rounded-md"></div>
           <div data-testid="colorOption" className="grid grid-cols-3 gap-2 m-4">
               {
