@@ -1,9 +1,14 @@
-
+import { useState } from "react"
+import Color from "./components/Color"
+import Instruction from "./components/Instruction"
 const App = () => {
+  const [showInstruction, setShowInstruction] = useState(true)
   return (
-    <div className="">
-      <div className="text-4xl">App</div>
-    </div>
+    <>
+      {
+        showInstruction ? <Instruction showInstruction={showInstruction} setShowInstruction={setShowInstruction} /> : <Color setShowInstruction={setShowInstruction} />
+      }
+    </>
   )
 }
 
